@@ -38,8 +38,9 @@ const formSchema = z.object({
     }),
 });
 
-const CreateAccountForm = () => {
+const LoginAccountForm = () => {
   const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
 
@@ -56,27 +57,22 @@ const CreateAccountForm = () => {
 
       const {
         error,
-        data: { user },
-      } = await supabase.auth.signUp({
+        data: { session },
+      } = await supabase.auth.signInWithPassword({
         email,
         password,
-        options: {
-          emailRedirectTo: `${location.origin}/auth/callback`,
-        },
       });
 
-      if (user) {
-        form.reset();
-        router.push('/');
-      }
+      form.reset();
+      router.refresh();
     } catch (error) {
-      console.log(error);
+      console.log('LoginAccountForm:onSubmit', error);
     }
   };
 
   return (
     <div className='flex flex-col justify-center items-center space-y-2'>
-      <span className='text-lg'>Tou will love it.</span>
+      <span className='text-lg'>Its good to see you again.</span>
 
       <Form {...form}>
         <form
@@ -113,11 +109,11 @@ const CreateAccountForm = () => {
             )}
           />
 
-          <Button type='submit'>Create Account</Button>
+          <Button type='submit'>Login</Button>
         </form>
       </Form>
     </div>
   );
 };
 
-export default CreateAccountForm;
+export default LoginAccountForm;
