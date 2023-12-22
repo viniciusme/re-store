@@ -1,6 +1,8 @@
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { RedirectType } from 'next/dist/client/components/redirect';
 import { cookies } from 'next/headers';
-import { RedirectType, redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import CreateAccountForm from '@/components/auth/create-account-form';
 import LoginAccountForm from '@/components/auth/login.account-form';
