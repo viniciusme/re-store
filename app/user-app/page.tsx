@@ -1,3 +1,4 @@
+import { UserNav } from '@/components/common/user-nav';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { RedirectType } from 'next/dist/client/components/redirect';
 import { cookies } from 'next/headers';
@@ -22,7 +23,7 @@ const UserApp = async () => {
 
   return (
     <div>
-      <p>User Logged in</p>
+      <UserNav />
     </div>
   );
 };
