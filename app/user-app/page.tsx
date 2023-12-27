@@ -1,9 +1,10 @@
-import { UserNav } from '@/components/common/user-nav';
-import UserAppHeader from '@/components/user-app/user-app-header';
 import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
 import { RedirectType } from 'next/dist/client/components/redirect';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+
+import UserAppHeader from '@/components/user-app/user-app-header';
+import { Sidebar } from '@/components/user-app/user-app-sidebar';
 
 const UserApp = async () => {
   let loggedIn = false;
@@ -30,7 +31,7 @@ const UserApp = async () => {
         <div className='border-t'>
           <div className='bg-background'>
             <div className='grid lg:grid-cols-5'>
-              {/* <Sidebar playlists={playlists} className='hidden lg:block' /> */}
+              <Sidebar className='hidden lg:block' />
               <div className='col-span-3 lg:col-span-4 lg:border-l'>
                 <div className='h-full px-4 py-6 lg:px-8'>
                   {/* <Tabs defaultValue='music' className='h-full space-y-6'>
