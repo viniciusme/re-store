@@ -52,7 +52,7 @@ export function UserNav() {
 
   return (
     <>
-      {!user && <Link href='/'>Login</Link>}
+      {/* {!user && <Link href='/'>Login</Link>} */}
       {user && (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
