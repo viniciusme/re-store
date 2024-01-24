@@ -1,10 +1,10 @@
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
-import { RedirectType } from 'next/dist/client/components/redirect';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { RedirectType } from "next/dist/client/components/redirect";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-import UserAppHeader from '@/components/user-app/user-app-header';
-import { Sidebar } from '@/components/user-app/user-app-sidebar';
+import UserAppHeader from "@/components/user-app/user-app-header";
+import { Sidebar } from "@/components/user-app/user-app-sidebar";
 
 const UserApp = async () => {
   let loggedIn = false;
@@ -18,22 +18,22 @@ const UserApp = async () => {
 
     if (session) loggedIn = true;
   } catch (error) {
-    console.log('UserApp', error);
+    console.log("UserApp", error);
   } finally {
-    if (!loggedIn) redirect('/', RedirectType.replace);
+    if (!loggedIn) redirect("/", RedirectType.replace);
   }
 
   return (
     <>
-      <div className='md:block'>
+      <div className="md:block">
         <UserAppHeader />
 
-        <div className='border-t'>
-          <div className='bg-background'>
-            <div className='grid lg:grid-cols-5'>
-              <Sidebar className='hidden lg:block' />
-              <div className='col-span-3 lg:col-span-4 lg:border-l'>
-                <div className='h-full px-4 py-6 lg:px-8'>
+        <div className="border-t">
+          <div className="bg-background">
+            <div className="grid md:grid-cols-5">
+              <Sidebar className="hidden lg:block" />
+              <div className="col-span-3 lg:col-span-4 lg:border-l">
+                <div className="h-full px-4 py-6 lg:px-8">
                   {/* <Tabs defaultValue='music' className='h-full space-y-6'>
                     <div className='space-between flex items-center'>
                       <TabsList>
