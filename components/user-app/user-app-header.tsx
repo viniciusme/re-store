@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { UserNav } from '../common/user-nav';
+import { UserNav } from "../common/user-nav";
 
 export default function UserAppHeader() {
   return (
     <header>
-      <nav className='flex items-center justify-between m-4'>
-        <span className='font-extrabold'>
-          re<span className='font-extralight'>Store</span>
+      <nav className="m-4 flex items-center justify-between">
+        <span className="font-extrabold">
+          re<span className="font-extralight">Store</span>
         </span>
 
         <UserNav />
